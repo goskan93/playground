@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./TicTacToe.css";
 import { FaCircleNotch, FaTimes } from "react-icons/fa";
 import Button from "../../components/Button/Button";
+import RadioButton from "../../components/RadioButton/RadioButton";
+
 const playerIcons = {
   Player1: FaCircleNotch,
   Player2: FaTimes,
@@ -114,16 +116,10 @@ const TicTacToe = () => {
   return (
     <div className="TTT-Container">
       <h3 style={{ textAlign: "center" }}>{text ? text : `Player ${currentPlayer}`}</h3>
-      <div>
-        <label>
-          <input type="radio" value="3" id="3" checked={size === 3} onChange={onChangeGridSize} />3
-        </label>
-        <label for="5">
-          <input type="radio" value="5" id="5" checked={size === 5} onChange={onChangeGridSize} />5
-        </label>
-        <label for="7">
-          <input type="radio" value="7" id="7" checked={size === 7} onChange={onChangeGridSize} />7
-        </label>
+      <div className="RadioButtons-Container">
+        {[3, 5, 7].map((el) => (
+          <RadioButton label={el} value={el} checked={size === el} onChange={onChangeGridSize} />
+        ))}
       </div>
       <div className="Buttons-Container">
         <Button label="PLAY AGAIN" click={onResetGame} btnClass="BtnLight" />
