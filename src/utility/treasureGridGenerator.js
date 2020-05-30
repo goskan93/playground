@@ -1,13 +1,13 @@
 // ExAMPLE const grid = [3, 4, 3, 2, 1, 2, 3, 2, 3, 2, 1, 2, 3, 4, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1];
 
-const generateRandom = () => {
-  return Math.round(Math.random() * 24) + 0;
+export const generateRandom = (max) => {
+  return Math.round(Math.random() * max) + 0;
 };
 
 const generateTreasureGrid = () => {
   let grid = new Array(25);
   while (grid.filter(Boolean).length < 3) {
-    let index = generateRandom();
+    let index = generateRandom(24);
     if (!grid[index]) {
       grid[index] = 4;
     }

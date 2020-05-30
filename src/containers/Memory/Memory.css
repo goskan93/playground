@@ -26,17 +26,9 @@
   background-color: #dc685a;
 }
 
-.Disabled > li {
-  background-color: #3d4250;
-}
-
 .Memory-Grid li:not(.Open):hover {
   background-color: #3d4250;
   cursor: pointer;
-}
-
-.Disabled li:not(.Open):hover {
-  cursor: not-allowed;
 }
 
 .Memory-Grid li::after {
