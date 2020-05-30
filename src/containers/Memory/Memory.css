@@ -1,0 +1,52 @@
+.Memory-Container {
+  width: 90%;
+  margin: auto;
+}
+
+.Memory-Grid {
+  padding: 0;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.Memory-Grid li {
+  list-style: none;
+  border-radius: 1rem;
+  background-color: #78bec5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Memory-Grid li.Open {
+  background-color: #dc685a;
+}
+
+.Disabled > li {
+  background-color: #3d4250;
+}
+
+.Memory-Grid li:not(.Open):hover {
+  background-color: #3d4250;
+  cursor: pointer;
+}
+
+.Disabled li:not(.Open):hover {
+  cursor: not-allowed;
+}
+
+.Memory-Grid li::after {
+  content: "";
+  padding-bottom: 100%;
+  display: inline-block;
+}
+
+@media (min-width: 900px) {
+  .Memory-Grid {
+    width: 40%;
+  }
+}
