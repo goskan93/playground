@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Treasure.css";
 import { FaQuestion, FaGem } from "react-icons/fa";
 import generateTreasureGrid from "../../utility/treasureGridGenerator";
-
+import Button from "../../components/Button/Button";
 const Treasure = () => {
   const [treasureGrid, setTreasureGrid] = useState([]);
   const [guessArray, setGuessArray] = useState(Array(25));
@@ -59,11 +59,11 @@ const Treasure = () => {
 
   return (
     <div className="Treasure-Container">
-      <span> {gameFinished ? `Game FInished! Youre score ${countTurns}` : `No. of turn: ${countTurns}`} </span>
-      <button onClick={onResetGame}>Play again</button>
-      <button onClick={onCheck} disabled={gameFinished}>
-        Check
-      </button>
+      <h3 style={{ textAlign: "center" }}> {gameFinished ? `Game FInished! Youre score ${countTurns}` : `No. of turn: ${countTurns}`} </h3>
+      <div className="Buttons-Container">
+        <Button label="PLAY AGAIN" click={onResetGame} btnClass="BtnLight" />
+        <Button label="CHECK" click={onCheck} btnClass="BtnDark" disabled={gameFinished} />
+      </div>
       <ul className={gameFinished ? "Treasure-Grid Disabled" : "Treasure-Grid"}>
         {Array(25)
           .fill()

@@ -37,7 +37,7 @@
 }
 
 .Disabled li:not(.Player1):not(.Player2):hover {
-  cursor: not-allowed;
+  cursor: default;
 }
 
 .TTT-Grid li::after {

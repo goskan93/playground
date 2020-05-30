@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./TicTacToe.css";
 import { FaCircleNotch, FaTimes } from "react-icons/fa";
-
+import Button from "../../components/Button/Button";
 const playerIcons = {
   Player1: FaCircleNotch,
   Player2: FaTimes,
@@ -113,7 +113,7 @@ const TicTacToe = () => {
 
   return (
     <div className="TTT-Container">
-      <p style={{ textAlign: "center" }}>{text ? text : `Player ${currentPlayer}`}</p>
+      <h3 style={{ textAlign: "center" }}>{text ? text : `Player ${currentPlayer}`}</h3>
       <div>
         <label>
           <input type="radio" value="3" id="3" checked={size === 3} onChange={onChangeGridSize} />3
@@ -124,6 +124,9 @@ const TicTacToe = () => {
         <label for="7">
           <input type="radio" value="7" id="7" checked={size === 7} onChange={onChangeGridSize} />7
         </label>
+      </div>
+      <div className="Buttons-Container">
+        <Button label="PLAY AGAIN" click={onResetGame} btnClass="BtnLight" />
       </div>
       <ul
         className={finished ? "TTT-Grid Disabled" : "TTT-Grid"}
@@ -142,7 +145,7 @@ const TicTacToe = () => {
             />
           ))}
       </ul>
-      <button onClick={onResetGame}>Start again</button>
+      {/* <button onClick={onResetGame}>Start again</button> */}
     </div>
   );
 };

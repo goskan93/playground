@@ -14,7 +14,6 @@
 }
 .Treasure-Grid li {
   list-style: none;
-  /* border: 1px solid red; */
   border-radius: 1rem;
   background-color: #78bec5;
   color: #fff;
@@ -41,7 +40,7 @@
   cursor: pointer;
 }
 .Disabled li:not(.Guess):not(.Guessed):hover {
-  cursor: not-allowed;
+  cursor: default;
 }
 
 .Treasure-Grid li::after {

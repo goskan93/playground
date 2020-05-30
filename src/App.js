@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "./containers/Layout/Layout";
 import Treasure from "./containers/TreasureGame/Treasure";
 import TicTacToe from "./containers/TicTacToeGame/TicTacToe";
-import Memory from "./containers/Memory/Memory";
+import Memory from "./containers/MemoryGame/Memory";
 import Home from "./containers/Home/Home";
 import { Switch, Route, Redirect } from "react-router-dom";
 function App() {

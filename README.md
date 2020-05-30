@@ -10,3 +10,4 @@ ladniejsze buttony wszedzie
 napisac testy
 moze scss i moduly bo sie powtarzaja
 animacje
+NavLink

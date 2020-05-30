@@ -1,0 +1,67 @@
+.Button {
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  text-align: center;
+  display: block;
+  margin: 1rem auto;
+  border-style: none;
+  background-color: #dc685a;
+  box-shadow: 2px 5px #c34f41;
+}
+
+.Button:focus {
+  outline: none;
+}
+.Button:disabled {
+  background-color: #707583;
+  box-shadow: 2px 5px #3d4250;
+  cursor: default;
+}
+.Button:disabled:hover {
+  cursor: default;
+  background-color: #707583;
+}
+
+.BtnLight {
+  background-color: #dc685a;
+  box-shadow: 2px 5px #c34f41;
+}
+.BtnLight:hover {
+  background-color: #ecaf4f;
+  cursor: pointer;
+}
+
+.BtnLight:active {
+  background-color: #ecaf4f;
+  box-shadow: 2px 3px #c34f41;
+  transform: translateY(2px);
+}
+
+.BtnDark {
+  background-color: #a93533;
+  box-shadow: 2px 5px #760200;
+}
+.BtnDark:hover {
+  background-color: #901c1a;
+  cursor: pointer;
+}
+
+.BtnDark:active {
+  background-color: #901c1a;
+  box-shadow: 2px 3px #760200;
+  transform: translateY(2px);
+}
+
+@media (min-width: 800px) {
+  .Button {
+    margin: 1rem;
+  }
+  .Buttons-Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

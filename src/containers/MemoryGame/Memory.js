@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Memory.css";
 import { FaCat, FaGem, FaAnchor, FaAppleAlt, FaBabyCarriage, FaBalanceScale, FaBomb, FaCannabis } from "react-icons/fa";
 import { generateRandom } from "../../utility/treasureGridGenerator";
+import Button from "../../components/Button/Button";
 
 const Memory = () => {
   const [gameGrid, setGameGrid] = useState({});
@@ -59,8 +60,12 @@ const Memory = () => {
 
   return (
     <div className="Treasure-Container">
-      <button onClick={onResetGame}>Play again</button>
-      {gameFinished && <span>You finished! Your score: {countScore}</span>}
+      {/* {gameFinished && <h3 style={{ textAlign: "center" }}>You finished! Your score: {countScore}</h3>} */}
+      <h3 style={{ textAlign: "center" }}> {gameFinished ? `Game FInished! Youre score ${countScore}` : `No. of try: ${countScore}`} </h3>
+
+      <div className="Buttons-Container">
+        <Button label="PLAY AGAIN" click={onResetGame} btnClass="BtnLight" />
+      </div>
       <ul className="Memory-Grid">
         {Array(16)
           .fill()
