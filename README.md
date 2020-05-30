@@ -6,7 +6,6 @@ sprawdzic czemu sie ostaje ten hover na koniec
 Home : moze cos bardziej ten teges
 
 dac opisy gry
-ladniejsze buttony wszedzie
 napisac testy
 moze scss i moduly bo sie powtarzaja
 animacje

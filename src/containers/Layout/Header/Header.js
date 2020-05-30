@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import "./Header.css";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaDice } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 const Navigation = (props) => (
   <>
-    <a className="Nav-Link" href="\tictactoe">
+    <NavLink className="Nav-Link" to="/tictactoe">
       Tic Tac Toe
-    </a>
-    <a className="Nav-Link" href="\treasure">
+    </NavLink>
+    <NavLink className="Nav-Link" to="/treasure">
       Treasure
-    </a>
-    <a className="Nav-Link" href="\memory">
+    </NavLink>
+    <NavLink className="Nav-Link" to="/memory">
       Memory
-    </a>
+    </NavLink>
   </>
 );
 
@@ -41,13 +43,18 @@ const NavigationMobile = (props) => {
   );
 };
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className="Header">
-      <NavigationDesktop />
-      <NavigationMobile />
+      <div className="Logo" onClick={() => props.history.push("/")}>
+        <FaDice size="3rem" color="#fff" />
+      </div>
+      <div>
+        <NavigationDesktop />
+        <NavigationMobile />
+      </div>
     </header>
   );
 };
 
-export default Header;
+export default withRouter(Header);
