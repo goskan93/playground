@@ -73,9 +73,9 @@
     color: #3a0000;
     transition: all 0.3s ease-in-out;
   }
-  .Nav-Desktop a:last-child {
+  /* .Nav-Desktop a:last-child {
     margin-right: 1rem;
-  }
+  } */
 
   .Nav-Desktop a:hover,
   .Nav-Desktop a.active {

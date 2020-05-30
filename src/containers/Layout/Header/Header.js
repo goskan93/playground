@@ -24,11 +24,7 @@ const NavigationDesktop = () => (
   </nav>
 );
 const NavigationMobile = (props) => {
-  const [openDrawer, setOpenDrawer] = useState(false);
-
-  const toggleDrawerHandler = () => {
-    setOpenDrawer((prevState) => !prevState);
-  };
+  const { openDrawer, toggleDrawerHandler } = props;
   let navClass = ["Nav-Mobile"];
   if (!openDrawer) navClass.push("Close");
   return (
@@ -36,7 +32,7 @@ const NavigationMobile = (props) => {
       <div className="Menubar" onClick={toggleDrawerHandler}>
         {openDrawer ? <FaTimes size="1.5rem" /> : <FaBars size="1.5rem" />}
       </div>
-      <nav className={navClass.join(" ")}>
+      <nav className={navClass.join(" ")} onClick={toggleDrawerHandler}>
         <Navigation />
       </nav>
     </div>
@@ -44,14 +40,24 @@ const NavigationMobile = (props) => {
 };
 
 const Header = (props) => {
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const toggleDrawerHandler = () => {
+    setOpenDrawer((prevState) => !prevState);
+  };
+
+  const onClickLogo = () => {
+    props.history.push("/");
+    toggleDrawerHandler();
+  };
   return (
     <header className="Header">
-      <div className="Logo" onClick={() => props.history.push("/")}>
+      <div className="Logo" onClick={onClickLogo}>
         <FaDice size="3rem" color="#fff" />
       </div>
       <div>
         <NavigationDesktop />
-        <NavigationMobile />
+        <NavigationMobile openDrawer={openDrawer} toggleDrawerHandler={toggleDrawerHandler} />
       </div>
     </header>
   );

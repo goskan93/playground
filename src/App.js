@@ -1,20 +1,32 @@
-import React from "react";
-import Layout from "./containers/Layout/Layout";
-import Treasure from "./containers/TreasureGame/Treasure";
-import TicTacToe from "./containers/TicTacToeGame/TicTacToe";
-import Memory from "./containers/MemoryGame/Memory";
-import Home from "./containers/Home/Home";
+import React, { Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+
+import Layout from "./containers/Layout/Layout";
+import Home from "./containers/Home/Home";
+import "./App.css";
+
+const Treasure = React.lazy(() => import("./containers/TreasureGame/Treasure"));
+const TicTacToe = React.lazy(() => import("./containers/TicTacToeGame/TicTacToe"));
+const Memory = React.lazy(() => import("./containers/MemoryGame/Memory"));
+
+const routes = [
+  { path: "/", Component: Home },
+  { path: "/tictactoe", Component: TicTacToe },
+  { path: "/treasure", Component: Treasure },
+  { path: "/memory", Component: Memory },
+];
+
 function App() {
   return (
     <Layout>
-      <Switch>
-        <Route path="/treasure" exact component={Treasure} />
-        <Route path="/tictactoe" exact component={TicTacToe} />
-        <Route path="/memory" exact component={Memory} />
-        <Route path="/" exact component={Home} />
-        <Redirect to="/" />
-      </Switch>
+      <Suspense fallback={<h3>Loading...</h3>}>
+        <Switch>
+          {routes.map(({ path, Component }) => (
+            <Route key={path} exact path={path} component={Component} />
+          ))}
+          <Redirect to="/" />
+        </Switch>
+      </Suspense>
     </Layout>
   );
 }

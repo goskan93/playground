@@ -20,19 +20,11 @@
   box-shadow: 2px 5px #3d4250;
   cursor: default;
 }
-.Button:disabled:hover {
-  cursor: default;
-  background-color: #707583;
-}
 
 .BtnLight {
   background-color: #dc685a;
   box-shadow: 2px 5px #c34f41;
   transition: all 0.3s ease-in-out;
-}
-.BtnLight:hover {
-  background-color: #ecaf4f;
-  cursor: pointer;
 }
 
 .BtnLight:active {
@@ -45,11 +37,6 @@
   background-color: #a93533;
   box-shadow: 2px 5px #760200;
   transition: all 0.3s ease-in-out;
-}
-
-.BtnDark:hover {
-  background-color: #901c1a;
-  cursor: pointer;
 }
 
 .BtnDark:active {
@@ -66,5 +53,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .BtnDark:hover {
+    background-color: #901c1a;
+    cursor: pointer;
+  }
+  .BtnLight:hover {
+    background-color: #ecaf4f;
+    cursor: pointer;
+  }
+  .Button:disabled:hover {
+    cursor: default;
+    background-color: #707583;
   }
 }
