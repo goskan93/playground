@@ -56,6 +56,7 @@ const Memory = () => {
     onSetGame();
     setGuessArray(Array(16).fill(false));
     setChecked([]);
+    setScore(0);
   };
 
   return (
