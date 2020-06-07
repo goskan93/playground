@@ -62,7 +62,7 @@ const Memory = () => {
   return (
     <div className="Treasure-Container">
       {/* {gameFinished && <h3 style={{ textAlign: "center" }}>You finished! Your score: {countScore}</h3>} */}
-      <h3 style={{ textAlign: "center" }}> {gameFinished ? `Game FInished! Youre score ${countScore}` : `No. of try: ${countScore}`} </h3>
+      <h3 style={{ textAlign: "center" }}> {gameFinished ? `Game Finished! Youre score ${countScore}` : `No. of try: ${countScore}`} </h3>
 
       <div className="Buttons-Container">
         <Button label="PLAY AGAIN" click={onResetGame} btnClass="BtnLight" />
