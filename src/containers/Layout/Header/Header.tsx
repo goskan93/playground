@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, FunctionComponent } from "react";
 import "./Header.css";
 import { FaBars, FaTimes, FaDice } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
-import { withRouter } from "react-router-dom";
+import { NavLink, withRouter, RouteComponentProps } from "react-router-dom";
 
-const Navigation = (props) => (
+const Navigation: FunctionComponent = () => (
   <>
     <NavLink className="Nav-Link" to="/tictactoe">
       Tic Tac Toe
@@ -18,12 +17,15 @@ const Navigation = (props) => (
   </>
 );
 
-const NavigationDesktop = () => (
+const NavigationDesktop: FunctionComponent = () => (
   <nav className="Nav-Desktop">
     <Navigation />
   </nav>
 );
-const NavigationMobile = (props) => {
+const NavigationMobile: FunctionComponent<{
+  openDrawer: boolean;
+  toggleDrawerHandler: () => void;
+}> = (props) => {
   const { openDrawer, toggleDrawerHandler } = props;
   let navClass = ["Nav-Mobile"];
   if (!openDrawer) navClass.push("Close");
@@ -39,7 +41,7 @@ const NavigationMobile = (props) => {
   );
 };
 
-const Header = (props) => {
+const Header: FunctionComponent<RouteComponentProps> = ({ history }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   const toggleDrawerHandler = () => {
@@ -47,7 +49,7 @@ const Header = (props) => {
   };
 
   const onClickLogo = () => {
-    props.history.push("/");
+    history.push("/");
     toggleDrawerHandler();
   };
   return (

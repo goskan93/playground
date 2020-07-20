@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import "./Button.css";
 
 type buttonProps = {
@@ -8,7 +8,7 @@ type buttonProps = {
   label: string;
 };
 
-const button = (props: buttonProps) => (
+const button: FunctionComponent<buttonProps> = (props) => (
   <button className={`Button ${props.btnClass}`} onClick={props.click} disabled={props.disabled ? props.disabled : false}>
     {props.label}
   </button>

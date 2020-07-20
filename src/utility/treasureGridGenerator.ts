@@ -1,10 +1,10 @@
 // ExAMPLE const grid = [3, 4, 3, 2, 1, 2, 3, 2, 3, 2, 1, 2, 3, 4, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1];
 
-export const generateRandom = (max) => {
+export const generateRandom = (max: number): number => {
   return Math.round(Math.random() * max) + 0;
 };
 
-const generateTreasureGrid = () => {
+const generateTreasureGrid = (): number[] => {
   let grid = new Array(25);
   while (grid.filter(Boolean).length < 3) {
     let index = generateRandom(24);
@@ -28,4 +28,5 @@ const generateTreasureGrid = () => {
   const gridPlay = Array.from(grid, (item) => item || 1);
   return gridPlay;
 };
+
 export default generateTreasureGrid;
