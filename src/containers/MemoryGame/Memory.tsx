@@ -1,38 +1,25 @@
 import React, { useState, useEffect } from "react";
 import "./Memory.css";
-import { FaCat, FaGem, FaAnchor, FaAppleAlt, FaBabyCarriage, FaBalanceScale, FaBomb, FaCannabis } from "react-icons/fa";
-import { generateRandom } from "../../utility/treasureGridGenerator";
 import Button from "../../components/Button/Button";
+import { setNewGame, gameGridType } from "../../utility/memoryGameHelper";
 
 const Memory = () => {
-  const [gameGrid, setGameGrid] = useState({});
-  const [gameFinished, setGameFinished] = useState(false);
-  const [guessArray, setGuessArray] = useState(Array(16).fill(false));
-  const [checked, setChecked] = useState([]);
-  const [countScore, setScore] = useState(0);
+  const [gameGrid, setGameGrid] = useState<gameGridType>({});
+  const [gameFinished, setGameFinished] = useState<boolean>(false);
+  const [guessArray, setGuessArray] = useState<boolean[]>(Array(16).fill(false));
+  const [checked, setChecked] = useState<number[]>([]);
+  const [countScore, setScore] = useState<number>(0);
 
   useEffect(() => {
     onSetGame();
   }, []);
 
-  const onSetGame = () => {
-    let gameGrid = {};
-    const icons = [FaCat, FaGem, FaAnchor, FaAppleAlt, FaBabyCarriage, FaBalanceScale, FaBomb, FaCannabis];
-    icons.forEach((Icon) => {
-      let i = 0;
-      while (i < 2) {
-        let index = generateRandom(15);
-        if (!gameGrid[index]) {
-          gameGrid[index] = Icon;
-          i++;
-        }
-      }
-    });
-    console.log(gameGrid);
+  const onSetGame = (): void => {
+    let gameGrid = setNewGame();
     setGameGrid(gameGrid);
   };
 
-  const onClickBox = (index) => {
+  const onClickBox = (index: number): void => {
     const updateChecked = [...checked, index];
     setChecked(updateChecked);
     if (updateChecked.length === 2) {
@@ -51,7 +38,7 @@ const Memory = () => {
       }, 500);
     }
   };
-  const onResetGame = () => {
+  const onResetGame = (): void => {
     setGameFinished(false);
     onSetGame();
     setGuessArray(Array(16).fill(false));
@@ -68,7 +55,7 @@ const Memory = () => {
       </div>
       <ul className="Memory-Grid">
         {Array(16)
-          .fill()
+          .fill(null)
           .map((_, index) => {
             let className = checked.includes(index) || guessArray[index] ? "Open" : "";
             let Icon = gameGrid[index];
