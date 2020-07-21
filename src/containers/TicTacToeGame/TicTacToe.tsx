@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, FunctionComponent } from "react";
 import "./TicTacToe.css";
 import { FaCircleNotch, FaTimes } from "react-icons/fa";
 import Button from "../../components/Button/Button";
 import RadioButton from "../../components/RadioButton/RadioButton";
-
+import { isWinner } from "../../utility/tictactoeHelper";
 const playerIcons = {
   Player1: FaCircleNotch,
   Player2: FaTimes,
 };
 
-const Grid = (props) => {
+type GridProps = {
+  gameFinished: boolean;
+  class: string;
+  player: string;
+  size: number;
+  click: () => void;
+};
+
+const Grid: FunctionComponent<GridProps> = (props) => {
   const [hover, setHover] = useState(false);
 
   const onMouseOver = () => {
@@ -30,62 +38,21 @@ const Grid = (props) => {
   );
 };
 
-const TicTacToe = () => {
-  const [size, setSize] = useState(3);
-  const arrLen = size ** 2;
+const TicTacToe: FunctionComponent = () => {
+  const [size, setSize] = useState<number>(3);
+  const arrLen: number = size ** 2;
 
-  const [currentPlayer, setCurrentPlayer] = useState(1);
-  const [playAray, setPlayArray] = useState(Array(arrLen));
-  const [finished, setFinished] = useState(false);
-  const [text, setText] = useState("");
+  const [currentPlayer, setCurrentPlayer] = useState<number>(1);
+  const [playAray, setPlayArray] = useState<string[]>(Array(arrLen));
+  const [finished, setFinished] = useState<boolean>(false);
+  const [text, setText] = useState<string>("");
 
-  const isWinner = (arr, index) => {
-    const col = index % size;
-    const row = Math.floor(index / size);
-
-    let sumRow = 0;
-    for (let i = row * size; i < row * size + size; i++) {
-      sumRow += arr[i] ? (arr[i] === "Player1" ? 1 : -1) : 0;
-    }
-
-    if (sumRow === size || sumRow === -size) {
-      return true;
-    }
-
-    let sumCol = 0;
-    for (let i = col; i < arrLen; i = i + size) {
-      sumCol += arr[i] ? (arr[i] === "Player1" ? 1 : -1) : 0;
-    }
-    if (sumCol === size || sumCol === -size) {
-      return true;
-    }
-
-    if (col === row || (col === 0 && row === size - 1) || (row === 0 && col === size - 1)) {
-      let diagL = 0;
-      for (let i = 0; i < arrLen; i = i + size + 1) {
-        diagL += arr[i] ? (arr[i] === "Player1" ? 1 : -1) : 0;
-      }
-      if (diagL === size || diagL === -size) {
-        return true;
-      }
-      let diagR = 0;
-      for (let i = size - 1; i < arrLen - 1; i = i + size - 1) {
-        diagR += arr[i] ? (arr[i] === "Player1" ? 1 : -1) : 0;
-      }
-      if (diagR === size || diagR === -size) {
-        return true;
-      }
-    }
-
-    return false;
-  };
-
-  const onClick = (index) => {
+  const onClick = (index: number): void => {
     if (!finished) {
       let updatedArray = playAray;
       if (!updatedArray[index]) {
         updatedArray[index] = `Player${currentPlayer}`;
-        const isWinnerFla = isWinner(updatedArray, index);
+        const isWinnerFla = isWinner(updatedArray, index, size, arrLen);
         if (isWinnerFla) {
           setFinished(true);
           setText(`Game Over! Player ${currentPlayer} won`);
@@ -108,8 +75,8 @@ const TicTacToe = () => {
     setText("");
   };
 
-  const onChangeGridSize = (event) => {
-    setSize(+event.target.value);
+  const onChangeGridSize = (event: React.FormEvent<HTMLInputElement>): void => {
+    setSize(+event.currentTarget.value);
     onResetGame();
   };
 
@@ -118,7 +85,7 @@ const TicTacToe = () => {
       <h3 style={{ textAlign: "center" }}>{text ? text : `Player ${currentPlayer}`}</h3>
       <div className="RadioButtons-Container">
         {[3, 5, 7].map((el) => (
-          <RadioButton label={el} value={el} checked={size === el} onChange={onChangeGridSize} />
+          <RadioButton label={el.toString()} value={el} checked={size === el} onChange={onChangeGridSize} />
         ))}
       </div>
       <div className="Buttons-Container">
@@ -129,7 +96,7 @@ const TicTacToe = () => {
         style={{ gridTemplateColumns: "1fr ".repeat(size), gridTemplateRows: "1fr ".repeat(size) }}
       >
         {Array(arrLen)
-          .fill()
+          .fill(null)
           .map((_, index) => (
             <Grid
               key={index}
@@ -141,7 +108,6 @@ const TicTacToe = () => {
             />
           ))}
       </ul>
-      {/* <button onClick={onResetGame}>Start again</button> */}
     </div>
   );
 };

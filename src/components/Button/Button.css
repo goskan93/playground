@@ -12,9 +12,9 @@
   box-shadow: 2px 5px #c34f41;
 }
 
-.Button:focus {
-  outline: none;
-}
+/* .Button:focus {
+  outline: thin;
+} */
 .Button:disabled {
   background-color: #707583;
   box-shadow: 2px 5px #3d4250;

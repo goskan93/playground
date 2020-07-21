@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FunctionComponent } from "react";
 import "./Treasure.css";
 import { FaQuestion, FaGem } from "react-icons/fa";
 import generateTreasureGrid from "../../utility/treasureGridGenerator";
 import Button from "../../components/Button/Button";
-const Treasure = () => {
-  const [treasureGrid, setTreasureGrid] = useState([]);
-  const [guessArray, setGuessArray] = useState(Array(25));
-  const [checked, setChecked] = useState([]);
-  const [countTurns, setCountTurns] = useState(1);
-  const [gameFinished, setGameFinished] = useState(false);
+
+const Treasure: FunctionComponent = () => {
+  const [treasureGrid, setTreasureGrid] = useState<number[]>([]);
+  const [guessArray, setGuessArray] = useState<number[]>(Array(25));
+  const [checked, setChecked] = useState<number[]>([]);
+  const [countTurns, setCountTurns] = useState<number>(1);
+  const [gameFinished, setGameFinished] = useState<boolean>(false);
 
   useEffect(() => {
     generateGrid();
   }, []);
 
-  const generateGrid = () => {
+  const generateGrid = (): void => {
     const grid = generateTreasureGrid();
     setTreasureGrid(grid);
   };
-  const onClickBox = (index) => {
+
+  const onClickBox = (index: number): void => {
     if (!gameFinished) {
       if (!guessArray[index]) {
         if (checked.includes(index)) {
@@ -32,14 +34,14 @@ const Treasure = () => {
     }
   };
 
-  const onCheck = () => {
+  const onCheck = (): void => {
     let updateGuessArray = guessArray;
-    checked.forEach((el, ind, arr) => {
+    checked.forEach((el: number, ind, arr) => {
       updateGuessArray[el] = treasureGrid[el];
     });
     setChecked([]);
     setGuessArray(updateGuessArray);
-    const numberTresuresGuessed = updateGuessArray.reduce((prev, curr) => {
+    const numberTresuresGuessed: number = updateGuessArray.reduce((prev, curr) => {
       return curr === 4 ? prev + 1 : prev;
     }, 0);
     if (numberTresuresGuessed === 3) {
@@ -49,7 +51,7 @@ const Treasure = () => {
     }
   };
 
-  const onResetGame = () => {
+  const onResetGame = (): void => {
     setChecked([]);
     setCountTurns(1);
     setGuessArray(Array(25));
@@ -66,7 +68,7 @@ const Treasure = () => {
       </div>
       <ul className={gameFinished ? "Treasure-Grid Disabled" : "Treasure-Grid"}>
         {Array(25)
-          .fill()
+          .fill(null)
           .map((_, index) => {
             let className = checked.includes(index) ? "Guess" : guessArray[index] ? "Guessed" : "";
             return (

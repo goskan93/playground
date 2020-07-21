@@ -4,7 +4,7 @@ import "./RadioButton.css";
 type radioBtnProps = {
   value: number;
   checked: boolean;
-  onChange: () => void;
+  onChange: (event: React.FormEvent<HTMLInputElement>) => void;
   label: string;
 };
 
