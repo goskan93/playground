@@ -12,8 +12,11 @@ describe("<RadioButton/>", () => {
   });
   it("renders without error", () => {
     expect(wrapper).toHaveLength(1);
+    expect(wrapper.exists(".RadioButton-Container")).toBeTruthy();
+    expect(wrapper.exists("label")).toBeTruthy();
+    expect(wrapper.exists("input")).toBeTruthy();
   });
-  it.only("correctly change props", () => {
+  it("correctly change props", () => {
     wrapper.setProps({ value: 3, label: "TestBtn", onChange: jest.fn(), checked: true });
     const inputWrapper = wrapper.find("input");
 

@@ -12,6 +12,8 @@ describe("<Button>", () => {
   });
   it("renders without error", () => {
     expect(wrapper).toHaveLength(1);
+    expect(wrapper.exists("button")).toBeTruthy();
+    expect(wrapper.exists(".Button")).toBeTruthy();
   });
   it("has default props", () => {
     expect(wrapper.prop("disabled")).toBe(false);

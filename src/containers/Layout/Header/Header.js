@@ -4,7 +4,7 @@ import { FaBars, FaTimes, FaDice } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
-const Navigation = (props) => (
+export const Navigation = () => (
   <>
     <NavLink className="Nav-Link" to="/tictactoe">
       Tic Tac Toe
@@ -18,12 +18,12 @@ const Navigation = (props) => (
   </>
 );
 
-const NavigationDesktop = () => (
+export const NavigationDesktop = () => (
   <nav className="Nav-Desktop">
     <Navigation />
   </nav>
 );
-const NavigationMobile = (props) => {
+export const NavigationMobile = (props) => {
   const { openDrawer, toggleDrawerHandler } = props;
   let navClass = ["Nav-Mobile"];
   if (!openDrawer) navClass.push("Close");
