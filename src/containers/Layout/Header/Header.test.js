@@ -27,14 +27,18 @@ describe("<NavigationNavigationMobileobile/>", () => {
     expect(wrapper.find("nav")).toHaveLength(1);
     expect(wrapper.find("Navigation")).toHaveLength(1);
   });
-  it("changes prop openDrawer when click", () => {
-    // const wrapper = shallow(<NavigationMobile />);
-    // console.log(wrapper.debug());
-    // expect(wrapper.find("FaBars")).toHaveLength(1);
-    // expect(wrapper.find("nav").hasClass("Nav-Mobile")).toBeTruthy();
-    // wrapper.find(".Menubar").simulate("click", true);
-    // expect(wrapper.find("FaTimes")).toHaveLength(1);
-    // expect(wrapper.find("nav").hasClass("Nav-Mobile Close")).toBeTruthy();
+  it.only("changes prop openDrawer when click", () => {
+    // const toggleDrawerHandlerMock = jest.fn();
+    let openDrawerMock = true;
+    const toggleDrawerHandlerMock = jest.fn(() => (openDrawerMock = !openDrawerMock));
+    const wrapper = shallow(<NavigationMobile openDrawer={openDrawerMock} toggleDrawerHandler={toggleDrawerHandlerMock} />);
+    expect(wrapper.find("FaBars")).toHaveLength(1);
+    expect(wrapper.find("nav").hasClass("Nav-Mobile")).toBeTruthy();
+    wrapper.find(".Menubar").simulate("click");
+    expect(toggleDrawerHandlerMock).toHaveBeenCalledTimes(1);
+
+    expect(wrapper.find("FaTimes")).toHaveLength(1);
+    expect(["Nav-Mobile", "Close"].every((c) => wrapper.find("nav").hasClass(c))).toBeTruthy();
   });
 });
 describe("<Header/>", () => {
