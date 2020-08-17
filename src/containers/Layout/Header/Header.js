@@ -43,7 +43,7 @@ const Header = (props) => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   const toggleDrawerHandler = () => {
-    setOpenDrawer((prevState) => !prevState);
+    setOpenDrawer(!openDrawer);
   };
 
   const onClickLogo = () => {
