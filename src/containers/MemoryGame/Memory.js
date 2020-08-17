@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Memory.css";
-import { FaCat, FaGem, FaAnchor, FaAppleAlt, FaBabyCarriage, FaBalanceScale, FaBomb, FaCannabis } from "react-icons/fa";
-import { generateRandom } from "../../utility/treasureGridGenerator";
+import { generateMemoryGrid } from "../../utility/memoryGameGrid";
 import Button from "../../components/Button/Button";
 
 const Memory = () => {
@@ -16,20 +15,8 @@ const Memory = () => {
   }, []);
 
   const onSetGame = () => {
-    let gameGrid = {};
-    const icons = [FaCat, FaGem, FaAnchor, FaAppleAlt, FaBabyCarriage, FaBalanceScale, FaBomb, FaCannabis];
-    icons.forEach((Icon) => {
-      let i = 0;
-      while (i < 2) {
-        let index = generateRandom(15);
-        if (!gameGrid[index]) {
-          gameGrid[index] = Icon;
-          i++;
-        }
-      }
-    });
-    console.log(gameGrid);
-    setGameGrid(gameGrid);
+    const grid = generateMemoryGrid();
+    setGameGrid(grid);
   };
 
   const onClickBox = (index) => {
