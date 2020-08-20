@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header/Header";
-import "./Layout.css";
+import "./Layout.scss";
 const layout = (props) => (
   <div className="Layout">
     <Header />

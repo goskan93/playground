@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./TicTacToe.css";
+import "./TicTacToe.scss";
 import { FaCircleNotch, FaTimes } from "react-icons/fa";
 import Button from "../../components/Button/Button";
 import RadioButton from "../../components/RadioButton/RadioButton";
@@ -17,7 +17,7 @@ const Grid = (props) => {
   };
 
   const onMouseOut = () => {
-    !props.gameFinished && setHover(false);
+    setHover(false);
   };
 
   const Icon = props.class ? playerIcons[props.class] : null;

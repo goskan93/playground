@@ -1,0 +1,44 @@
+@import "../../scss/variables.scss";
+
+.Treasure-Container {
+  @include container;
+}
+
+.Treasure-Grid {
+  @include grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  li {
+    @include li;
+    font-size: 3rem;
+    color: #fff;
+
+    &.Guess {
+      background-color: #ecaf4f;
+    }
+    &.Guessed {
+      background-color: #dc685a;
+    }
+    &:not(.Guess):not(.Guessed):hover {
+      background-color: #3d4250;
+      cursor: pointer;
+    }
+    &::after {
+      content: "";
+      padding-bottom: 100%;
+      display: inline-block;
+    }
+  }
+
+  @media (min-width: $breakpoint) {
+    width: 50%;
+  }
+}
+
+.Disabled > li {
+  background-color: #3d4250;
+}
+
+.Disabled li:not(.Guess):not(.Guessed):hover {
+  cursor: default;
+}

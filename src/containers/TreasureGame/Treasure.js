@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Treasure.css";
+import "./Treasure.scss";
 import { FaQuestion, FaGem } from "react-icons/fa";
 import generateTreasureGrid from "../../utility/treasureGridGenerator";
 import Button from "../../components/Button/Button";

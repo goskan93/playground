@@ -7,3 +7,31 @@ $color_orange: #ecaf4f;
 $color_red_light_primary: #a93533;
 $color_red_dark_primary: #760200;
 $color_red_light_secondary: #901c1a;
+$color_bordo: #3a0000;
+
+$breakpoint: 800px;
+$breakpoint_small: 600px;
+$breakpoint_big: 900px;
+
+@mixin container {
+  width: 90%;
+  margin: auto;
+}
+
+@mixin grid {
+  padding: 0;
+  margin: auto;
+  display: grid;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+@mixin li {
+  list-style: none;
+  border-radius: 1rem;
+  background-color: #78bec5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s linear;
+}

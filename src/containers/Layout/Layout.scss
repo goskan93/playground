@@ -1,0 +1,16 @@
+@import "../../scss/variables.scss";
+
+.Layout {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 1rem;
+
+  main {
+    margin-top: 4rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    min-height: calc(100vh - 4rem);
+    width: 100%;
+    background-color: #ddd;
+    color: $color_grey_dark;
+  }
+}

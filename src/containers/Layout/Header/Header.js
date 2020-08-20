@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Header.css";
+import "./Header.scss";
 import { FaBars, FaTimes, FaDice } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router-dom";

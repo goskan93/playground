@@ -1,0 +1,32 @@
+@import "../../scss/variables.scss";
+
+.Memory-Container {
+  @include container;
+}
+
+.Memory-Grid {
+  @include grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+
+  li {
+    @include li;
+
+    &.Open {
+      background-color: $color_pink_light;
+    }
+    &:not(.Open):hover {
+      background-color: $color_grey_dark;
+      cursor: pointer;
+    }
+    &:after {
+      content: "";
+      padding-bottom: 100%;
+      display: inline-block;
+    }
+  }
+
+  @media (min-width: $breakpoint_big) {
+    width: 40%;
+  }
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Memory.css";
+import "./Memory.scss";
 import { FaCat, FaGem, FaAnchor, FaAppleAlt, FaBabyCarriage, FaBalanceScale, FaBomb, FaCannabis } from "react-icons/fa";
 import { generateRandom } from "../../utility/treasureGridGenerator";
 import Button from "../../components/Button/Button";

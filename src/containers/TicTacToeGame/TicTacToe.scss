@@ -1,0 +1,41 @@
+@import "../../scss/variables.scss";
+
+.TTT-Container {
+  @include container;
+}
+
+.TTT-Grid {
+  @include grid;
+
+  li {
+    @include li;
+
+    &.Player1 {
+      background-color: $color_pink_light;
+    }
+    &.Player2 {
+      background-color: $color_orange;
+    }
+    &:not(.Player1):not(.Player2):hover {
+      background-color: $color_grey_dark;
+      cursor: pointer;
+    }
+    &::after {
+      content: "";
+      padding-bottom: 100%;
+      display: inline-block;
+    }
+  }
+
+  @media (min-width: $breakpoint_big) {
+    width: 40%;
+  }
+}
+
+.Disabled > li {
+  background-color: $color_grey_dark;
+}
+
+.Disabled li:not(.Player1):not(.Player2):hover {
+  cursor: default;
+}

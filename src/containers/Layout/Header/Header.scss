@@ -1,0 +1,92 @@
+@import "../../../scss//variables.scss";
+
+.Header {
+  height: 4rem;
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: $color_pink_light;
+  border-bottom: 0.5px solid $color_pink_dark;
+}
+
+.Logo {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.Close {
+  display: none;
+}
+
+.Menubar {
+  position: fixed;
+  z-index: 100;
+  right: 0;
+  top: 0;
+  margin: 1.2rem;
+  cursor: pointer;
+  color: $color_orange;
+}
+
+.Nav-Mobile {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 40%;
+  margin: 0.5rem;
+  text-align: center;
+  padding: 2rem 0 0.5rem 0;
+  box-sizing: border-box;
+  background-color: $color_pink_light;
+  border: 0.5px solid $color_red_dark_primary;
+  border-radius: 1rem;
+  z-index: 50;
+
+  a {
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    color: $color_red_dark_primary;
+    background-color: $color_pink_dark;
+    border-radius: 1rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .Nav-Desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) {
+  .Mobile {
+    display: none;
+  }
+
+  .Nav-Desktop {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 1.5rem 1rem;
+      color: $color_bordo;
+      transition: all 0.3s ease-in-out;
+
+      &:hover,
+      &.active {
+        color: $color_red_dark_primary;
+        background-color: #ff9b8d;
+        border-bottom: 1px solid $color_red_dark_primary;
+      }
+    }
+  }
+}
