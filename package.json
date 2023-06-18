@@ -2,7 +2,7 @@
   "name": "playground",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goskan93.github.io/playground/",
+  "homepage": "https://playground-gonska.vercel.app/",
   "engines": {
     "node": "18.14.2"
   },
