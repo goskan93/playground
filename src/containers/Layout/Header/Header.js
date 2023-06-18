@@ -55,10 +55,10 @@ const Header = (props) => {
       <div className="Logo" onClick={onClickLogo}>
         <FaDice size="3rem" color="#fff" />
       </div>
-      <div>
+      <nav>
         <NavigationDesktop />
         <NavigationMobile openDrawer={openDrawer} toggleDrawerHandler={toggleDrawerHandler} />
-      </div>
+      </nav>
     </header>
   );
 };

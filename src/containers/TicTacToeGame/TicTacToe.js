@@ -115,7 +115,7 @@ const TicTacToe = () => {
 
   return (
     <div className="TTT-Container">
-      <h3 style={{ textAlign: "center" }}>{text ? text : `Player ${currentPlayer}`}</h3>
+      <h3 style={{ textAlign: "center", margin: '8px' }}>{text ? text : `Player ${currentPlayer}`}</h3>
       <div className="RadioButtons-Container">
         {[3, 5, 7].map((el) => (
           <RadioButton label={el} value={el} checked={size === el} onChange={onChangeGridSize} />
@@ -141,7 +141,6 @@ const TicTacToe = () => {
             />
           ))}
       </ul>
-      {/* <button onClick={onResetGame}>Start again</button> */}
     </div>
   );
 };
