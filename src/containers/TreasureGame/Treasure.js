@@ -59,7 +59,8 @@ const Treasure = () => {
 
   return (
     <div className="Treasure-Container">
-      <h3 style={{ textAlign: "center" }}> {gameFinished ? `Game FInished! Youre score ${countTurns}` : `No. of turn: ${countTurns}`} </h3>
+      <h3 style={{ textAlign: "center", margin: '8px' }}> {gameFinished ? `Game FInished! Youre score ${countTurns}` : `Number of attempts: ${countTurns}`} </h3>
+      <h6 style={{ textAlign: "center", margin: 0 }}>Try to find three diamonds. The closer you are from treasures, the bigger the number under the card.</h6>
       <div className="Buttons-Container">
         <Button label="PLAY AGAIN" click={onResetGame} btnClass="BtnLight" />
         <Button label="CHECK" click={onCheck} btnClass="BtnDark" disabled={gameFinished} />

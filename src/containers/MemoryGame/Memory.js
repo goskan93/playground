@@ -28,7 +28,6 @@ const Memory = () => {
         }
       }
     });
-    console.log(gameGrid);
     setGameGrid(gameGrid);
   };
 
@@ -61,7 +60,7 @@ const Memory = () => {
 
   return (
     <div className="Treasure-Container">
-      <h3 style={{ textAlign: "center" }}> {gameFinished ? `Game Finished! Youre score ${countScore}` : `No. of try: ${countScore}`} </h3>
+      <h3 style={{ textAlign: "center", margin:'8px' }}> {gameFinished ? `Game Finished! Your score: ${countScore}` : `Number of attempts: ${countScore}`} </h3>
 
       <div className="Buttons-Container">
         <Button label="PLAY AGAIN" click={onResetGame} btnClass="BtnLight" />
