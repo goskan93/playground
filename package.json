@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://goskan93.github.io/playground/",
   "engines": {
-    "node": "16.15.0"
+    "node": "18.14.2"
   },
   "dependencies": {
     "react": "18.2.0",
