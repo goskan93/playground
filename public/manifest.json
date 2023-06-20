@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Playground",
+  "name": "Playground - play online games - tic tac toe, memory, treasure and more!",
   "icons": [],
   "start_url": ".",
   "display": "standalone",
